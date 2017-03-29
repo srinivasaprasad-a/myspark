@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Implementation-Vendor: The Apache Software Foundation
+Implementation-Title: Apache HBase - Client
+Implementation-Version: 1.3.0
+Implementation-Vendor-Id: org.apache.hbase
+Built-By: mantonov
+Build-Jdk: 1.7.0_79
+Specification-Vendor: The Apache Software Foundation
+Specification-Title: Apache HBase - Client
+Created-By: Apache Maven 3.3.9
+Specification-Version: 1.3.0
+Archiver-Version: Plexus Archiver
+
