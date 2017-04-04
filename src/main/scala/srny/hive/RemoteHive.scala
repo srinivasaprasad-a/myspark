@@ -1,4 +1,5 @@
-import java.sql.Timestamp
+package srny.hive
+
 import scala.collection.mutable.MutableList
 import java.sql.DriverManager
 import java.sql.Connection
@@ -23,11 +24,14 @@ object RemoteHive {
   )
     
     def main(args: Array[String]): Unit = {
-        val spark = SparkSession.builder().appName("RemoteHive").getOrCreate()
+        val spark = SparkSession.builder()
+                  .appName("RemoteHive")
+                  .master("local")
+                  .getOrCreate()
         val sc = spark.sparkContext
         import spark.implicits._
       
-        val url: String = "jdbc:hive2://localhost:10000"
+        val url: String = "jdbc:hive2://localhost:10000/default;httpPath=cliservice;transportMode=http"
         val user: String = ""
         val password: String = ""
         
@@ -46,10 +50,10 @@ object RemoteHive {
                res.getLong("size_p"), 
                res.getLong("size_d"))*/
           var rec = Employee(
-               res.getString("eid"), 
-               res.getString("name"), 
-               res.getString("salary"), 
-               res.getString("destination"))
+               res.getString("sample_employee.eid"), 
+               res.getString("sample_employee.name"), 
+               res.getString("sample_employee.salary"), 
+               res.getString("sample_employee.destination"))
           fetchedRes += rec
         }
         conn.close()

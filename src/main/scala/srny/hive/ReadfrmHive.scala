@@ -1,3 +1,5 @@
+package srny.hive
+
 import org.apache.spark.sql.SparkSession
 import java.io.File
 
